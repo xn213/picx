@@ -242,7 +242,7 @@ export default defineComponent({
         img.uploadStatus.uploading = true
 
         const data: any = {
-          message: `【${owner})】 Upload imgs via PicX to '${selectedDir}'`,
+          message: `Upload imgs via PicX to '${selectedDir}'`,
           branch: selectedBranch,
           content: img.imgData.base64Content
         }
