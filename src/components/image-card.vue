@@ -64,6 +64,8 @@ export default defineComponent({
       deleteImage(imageObj: UploadedImageModel) {
         // eslint-disable-next-line no-param-reassign
         imageObj.deleting = true
+        let imageName = imageObj.name
+        imageName = imageName.length >= 9 ? imageName.slice(0, 7) : imageName
 
         axios
           .delete(
@@ -77,7 +79,7 @@ export default defineComponent({
                 owner: this.userConfigInfo?.owner,
                 repo: this.userConfigInfo?.selectedRepos,
                 path: imageObj.path,
-                message: 'delete pictures via PicX(https://github.com/XPoet/picx)',
+                message: `delete img:'${imageName}' via PicX from <${imageObj.dir}>`,
                 sha: imageObj.sha
               }
             }
